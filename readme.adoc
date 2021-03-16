@@ -38,6 +38,8 @@ repositories {
 }
 ----
 
+The fallback values `GITHUB_USERNAME` and `GITHUB_TOKEN` will be used when building the project in Jenkins.
+
 == Publishing Packages
 
 === Gradle
