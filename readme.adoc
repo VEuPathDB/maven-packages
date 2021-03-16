@@ -1,5 +1,6 @@
 = Maven Package Repo
 :toc:
+:toclevels: 3
 
 == Setup
 
@@ -39,7 +40,9 @@ repositories {
 
 == Publishing Packages
 
-=== Configuring Gradle
+=== Gradle
+
+==== Configuration
 
 Apply the following changes to your `build.gradle.kts` file.
 
@@ -103,7 +106,7 @@ publishing {
 ----
 . Optionally configure the generated pom following the instructions https://docs.gradle.org/current/userguide/publishing_maven.html[in the Gradle docs].
 
-=== Publishing
+==== Publishing
 
 Once your `build.gradle.kts` file has been updated with the publishing configuration, publishing artifacts can be done with the following command:
 [source, shell]
