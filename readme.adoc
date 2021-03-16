@@ -104,7 +104,7 @@ publishing {
   }
 }
 ----
-. Optionally configure the generated pom following the instructions https://docs.gradle.org/current/userguide/publishing_maven.html[in the Gradle docs].
+. Optionally configure the generated pom following the instructions https://docs.gradle.org/current/userguide/publishing_maven.html[in the Gradle docs]).
 
 ==== Publishing
 
