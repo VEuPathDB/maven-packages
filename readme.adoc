@@ -106,7 +106,7 @@ publishing {
   }
 }
 ----
-. Optionally configure the generated pom following the instructions https://docs.gradle.org/current/userguide/publishing_maven.html[in the Gradle docs].  An example of a customized pom can be found in https://github.com/VEuPathDB/lib-jaxrs-container-core/blob/master/build.gradle.kts#L67[the multi-blast service's build file] 
+. Optionally configure the generated pom following the instructions https://docs.gradle.org/current/userguide/publishing_maven.html[in the Gradle docs].  An example of a customized pom can be found in https://github.com/VEuPathDB/lib-jaxrs-container-core/blob/master/build.gradle.kts#L67[the container core lib's build file] 
 
 ==== Publishing
 
