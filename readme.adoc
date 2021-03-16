@@ -1,0 +1,111 @@
+= Maven Package Repo
+
+== Setup
+
+To pull or push artifacts from/to this repository, the `~/.gradle/gradle.properties` file must be created or edited with the following variables.
+
+.`gradle.properties`
+[source, properties]
+----
+gpr.user= <1>
+gpr.key= <2>
+----
+<1> Your GitHub username
+<2> Your GitHub token (see: https://docs.github.com/en/packages/learn-github-packages/about-github-packages#authenticating-to-github-packages[the GitHub documentation]
+
+== Pulling Packages
+
+=== Gradle
+
+To consume libraries hosted in this repo, the following must be added to your `build.gradle.kts` file's repositories block.
+
+.`build.gradle.kts`
+[source, kotlin]
+----
+// root repositories definition
+repositories {
+  // other repo defs such as mavenCentral()
+  maven {
+    name = "GitHubPackages"
+    url  = uri("https://maven.pkg.github.com/veupathdb/maven-packages")
+    credentials {
+      username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
+      password = project.findProperty("gpr.key") as String? ?: System.getenv("TOKEN")
+    }
+  }
+}
+----
+
+== Publishing Packages
+
+=== Configuring Gradle
+
+Apply the following changes to your `build.gradle.kts` file.
+
+. Add the `maven-publish` plugin to the plugins block.
++
+[source, kotlin]
+----
+// root plugins closure
+plugins {
+  // other plugins
+  `maven-publish`
+}
+----
+. Configure gradle to produce a sources jar and a javadoc jar.
++
+[source, kotlin]
+----
+java {
+  withSourcesJar()
+  withJavadocJar()
+}
+----
+. Add a `publishing` block.
++
+[source, kotlin]
+----
+publishing {
+}
+----
+. Add the publish target repository
++
+[source, kotlin]
+----
+publishing {
+  repositories {
+    maven {
+      name = "GitHub"
+      url  = uri("https://maven.pkg.github.com/veupathdb/maven-packages")
+      credentials {
+        username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
+        password = project.findProperty("gpr.key") as String? ?: System.getenv("TOKEN")
+      }
+    }
+  }
+}
+----
+. Add a publication for your project.
++
+[source, kotlin]
+----
+publishing {
+  repositories {
+    ...
+  }
+  publications {
+    create<MavenPublication>("gpr") {
+      from(components["java"]
+    }
+  }
+}
+----
+. Optionally configure the generated pom following the instructions https://docs.gradle.org/current/userguide/publishing_maven.html[in the Gradle docs].
+
+=== Publishing
+
+Once your `build.gradle.kts` file has been updated with the publishing configuration, publishing artifacts can be done with the following command:
+[source, shell]
+----
+./gradlew publish
+----
