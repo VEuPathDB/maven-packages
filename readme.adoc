@@ -13,7 +13,7 @@ gpr.user= <1>
 gpr.key= <2>
 ----
 <1> Your GitHub username
-<2> Your GitHub token (see: https://docs.github.com/en/packages/learn-github-packages/about-github-packages#authenticating-to-github-packages[the GitHub documentation]
+<2> Your GitHub token (see: https://docs.github.com/en/packages/learn-github-packages/about-github-packages#authenticating-to-github-packages[the GitHub documentation])
 
 == Pulling Packages
 
@@ -104,7 +104,7 @@ publishing {
   }
 }
 ----
-. Optionally configure the generated pom following the instructions https://docs.gradle.org/current/userguide/publishing_maven.html[in the Gradle docs]).
+. Optionally configure the generated pom following the instructions https://docs.gradle.org/current/userguide/publishing_maven.html[in the Gradle docs].
 
 ==== Publishing
 
