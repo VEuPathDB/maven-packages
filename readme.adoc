@@ -126,9 +126,9 @@ To set this up:
 
 . Add your username and publishing token to the repository's secrets (in the repo's settings).  The username should be under the key `USERNAME` and the your GitHub personal access token under the key `TOKEN`
 . Create a new file in your repo's root directory at the path `.github/workflows/release.yml`
-
++
 The contents of the `release.yml` file should be as follows:
-
++
 .`release.yml`
 [source, yaml]
 ----
