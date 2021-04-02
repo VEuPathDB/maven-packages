@@ -40,6 +40,43 @@ repositories {
 
 The fallback values `GITHUB_USERNAME` and `GITHUB_TOKEN` will be used when building the project in Jenkins.
 
+=== Docker/Docker Compose
+
+Building Docker images that depend on packages in this repo requires passing the GitHub access token to the image build.
+This can be done through Docker's https://docs.docker.com/engine/reference/commandline/build/#set-build-time-variables---build-arg[--build-arg] argument.
+
+==== Configuring Docker
+
+To enable passing the build-time credentials to Docker, the following https://docs.docker.com/engine/reference/builder/#arg[build args]
+must be added to your project's `Dockerfile`.
+
+These build args will become environment variables at build time, but will not appear in the built image.
+
+.Dockerfile
+[source, dockerfile]
+----
+FROM ...
+
+ARG GITHUB_USERNAME
+ARG GITHUB_TOKEN
+
+...
+----
+
+==== Building with Docker
+
+[source, shell-session]
+----
+$ docker build -t 'my-image' --build-arg=GITHUB_USERNAME=my-github-username --build-arg=GITHUB_TOKEN=my-access-token .
+----
+
+==== Building with Docker Compose
+
+[source, shell-session]
+----
+$ docker-compose build --build-arg GITHUB_USERNAME=my-github-username --build-arg GITHUB_TOKEN=my-access-token
+----
+
 == Publishing Packages
 
 === Gradle
