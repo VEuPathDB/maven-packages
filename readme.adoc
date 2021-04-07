@@ -121,8 +121,8 @@ publishing {
       name = "GitHub"
       url  = uri("https://maven.pkg.github.com/veupathdb/maven-packages")
       credentials {
-        username = project.findProperty("gpr.user") as String? ?: System.getenv("GITHUB_USERNAME")
-        password = project.findProperty("gpr.key") as String? ?: System.getenv("GITHUB_TOKEN")
+        username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
+        password = project.findProperty("gpr.key") as String? ?: System.getenv("TOKEN")
       }
     }
   }
@@ -187,8 +187,8 @@ jobs:
       - name: Publish Package
         run: gradle publish
         env:
-          GITHUB_USERNAME: ${{ secrets.USERNAME }}
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          USERNAME: ${{ secrets.USERNAME }}
+          TOKEN: ${{ secrets.TOKEN }}
 ----
 
 After pushing up the new file, any tagged commit to the repository will be automatically built and deployed to GitHub Packages.
