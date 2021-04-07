@@ -187,8 +187,8 @@ jobs:
       - name: Publish Package
         run: gradle publish
         env:
-          USERNAME: ${{ secrets.USERNAME }}
-          TOKEN: ${{ secrets.TOKEN }}
+          GITHUB_USERNAME: ${{ secrets.USERNAME }}
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
 ----
 
 After pushing up the new file, any tagged commit to the repository will be automatically built and deployed to GitHub Packages.
