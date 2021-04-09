@@ -192,3 +192,12 @@ jobs:
 ----
 
 After pushing up the new file, any tagged commit to the repository will be automatically built and deployed to GitHub Packages.
+
+== Appendix: Authentication Use Cases
+
+. Manually deploy new artifacts: use gradle.properties (or USERNAME/TOKEN as backup)
+. Automatically deploy new artifacts: use creds in github repo
+. Local build into jars: use gradle.properties (or GITHUB_* env vars as backup) with make jar
+. Local build into docker images: use GITHUB_* env vars with make docker or extended docker build line
+. Local build with docker-compose: use either env vars with extended docker-compose build line
+. Jenkins build into docker images: use either env vars with extended docker-compose build line
