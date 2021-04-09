@@ -195,9 +195,11 @@ After pushing up the new file, any tagged commit to the repository will be autom
 
 == Appendix: Authentication Use Cases
 
-. Manually deploy new artifacts: use gradle.properties (or USERNAME/TOKEN as backup)
-. Automatically deploy new artifacts: use creds in github repo
-. Local build into jars: use gradle.properties (or GITHUB_* env vars as backup) with make jar
-. Local build into docker images: use GITHUB_* env vars with make docker or extended docker build line
-. Local build with docker-compose: use either env vars with extended docker-compose build line
+How are a username/token combination transferred to Github during the following interations?
+
+. Manually deploy new artifacts: uses gradle.properties (or USERNAME/TOKEN env vars as backup)
+. Automatically deploy new artifacts: uses creds stored in the github repo
+. Local build into jars: uses gradle.properties (or GITHUB_* env vars as backup) with make jar
+. Local build into docker images: uses GITHUB_* env vars with make docker or extended docker build line
+. Local build with docker-compose: uses user-specified env vars with extended docker-compose build line
 . Jenkins build into docker images: use either env vars with extended docker-compose build line
