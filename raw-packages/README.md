@@ -1,6 +1,6 @@
 ## Dependencies
 
-**This directory acts as a VEuPathDB Maven repository for needed jars not generally available in Maven Central**
+**This directory acts as a VEuPathDB Maven repository for external jars not available in Maven Central or our own github packages repo**
 
 Ontology-related (need, but maybe look for alternatives?)
 - pellet
